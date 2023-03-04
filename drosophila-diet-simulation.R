@@ -56,3 +56,43 @@ results <- data.frame(diet = assign, preference = preference)
 print(results)
 
 
+
+# Set seed for reproducibility
+set.seed(123)
+
+# Define number of replicates, diets, and flies
+n_replicates <- 10
+n_diets <- 4
+n_flies <- 10
+
+# Simulate diet preference for each fly in each replicate
+preference <- array(dim = c(n_replicates, n_flies, n_diets))
+for (r in 1:n_replicates) {
+  for (f in 1:n_flies) {
+    # Simulate initial preference for each diet
+    initial_pref <- runif(n_diets)
+    initial_pref <- initial_pref / sum(initial_pref)
+    
+    # Simulate change in preference after exposure to each diet
+    for (d in 1:n_diets) {
+      if (d == 8:1) {
+        preference[r,f,d] <- rnorm(10, mean = initial_pref[d] + 2.74, sd = 1.69)
+      } else if (d == 2:1) {
+        preference[r,f,d] <- rnorm(10, mean = initial_pref[d] + 1.73, sd = 1.26)
+      } else if (d == 1:2) {
+        preference[r,f,d] <- rnorm(10, mean = initial_pref[d] - 0.98, sd = 1.05)
+      } else  if (d == 1:8)  {
+        preference[r,f,d] <- rnorm(10, mean = initial_pref[d] - 1.36, sd = 1.27)
+      }
+    }
+    
+    # Normalize preference values
+    preference[r,f,] <- preference[r,f,] / sum(preference[r,f,])
+  }
+}
+
+# Print the results for the first replicate and fly
+print(preference[1,1,])
+
+
+

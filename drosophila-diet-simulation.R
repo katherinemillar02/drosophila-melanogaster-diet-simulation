@@ -1,0 +1,58 @@
+
+#  starting with basics 
+# generating random numbers from 10 flie s
+
+x <- 1:10
+
+sample(x, 100, replace = TRUE)
+
+# taking 100 values from mated female (8:1 diet preference) experiment 
+
+rnorm(n = 100, mean = 2.74, sd = 1.69)
+
+
+
+# Set seed for reproducibility
+set.seed(123)
+
+# Define sample size
+n <- 10
+
+# Simulate rolling a fair die n times
+sample <- sample(1:10, size = n, replace = TRUE)
+
+# Print the results
+print(sample)
+
+
+
+
+# Set seed for reproducibility
+set.seed(123)
+
+# Define sample size and diets
+n <- 10
+diets <- c("8:1", "2:1", "1:2", "1:8")
+
+# Randomly assign individuals to diets
+assign <- sample(diets, size = n, replace = TRUE)
+
+# Simulate weight loss for each individual on their assigned diet
+preference <- numeric(n)
+for (i in 1:n) {
+  if (assign[i] == "8:1") {
+    preference[i] <- rnorm(10, mean = 2.74, sd = 1.69)
+  } else if (assign[i] == "2:1") {
+    preference[i] <- rnorm(10, mean = 1.73, sd = 1.26)
+  } else if (assign[i] == "1:2") {
+    preference[i] <- rnorm(10, mean = 0.98, sd = 1.05)
+  } else if (assign[i] == "1:8") {
+    preference[i] <- rnorm(10, mean = 1.36, sd = 1.27)
+  }
+}
+
+# Print the results
+results <- data.frame(diet = assign, preference = preference)
+print(results)
+
+

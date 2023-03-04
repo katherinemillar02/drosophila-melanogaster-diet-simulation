@@ -32,7 +32,7 @@ set.seed(123)
 
 # Define sample size and diets
 n <- 10
-diets <- c("8:1", "2:1", "1:2", "1:8")
+diets <- c("8:1", "2:1", "1:2", "1:8", "nodiet")
 
 # Randomly assign individuals to diets
 assign <- sample(diets, size = n, replace = TRUE)
@@ -48,8 +48,11 @@ for (i in 1:n) {
     preference[i] <- rnorm(10, mean = 0.98, sd = 1.05)
   } else if (assign[i] == "1:8") {
     preference[i] <- rnorm(10, mean = 1.36, sd = 1.27)
+  } else if (assign[i] == "nodiet") {
+    preference[i] <- rnorm(10, mean = 3.19, sd = 10.088)
   }
-}
+  }
+
 
 # Print the results
 results <- data.frame(diet = assign, preference = preference)

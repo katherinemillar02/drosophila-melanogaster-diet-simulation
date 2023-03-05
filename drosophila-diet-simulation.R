@@ -152,22 +152,23 @@ print(diet_counts)
 
 
 # Define the parameters of the simulation
-choices <- c("8:1", "2:1", "1:2", "1:8")
-probs <- c(2.74, 1.73, 0.98, 1.36)/12
-n_replicates <- 10
-n_flies <- 10
+diets <- c("8:1", "2:1", "1:2", "1:8")
+meansofdiets <- c(2.74, 1.73, 0.98, 1.36)
+replicateplates <- 10
+
+numberflies <- 10
 
 # Create an empty matrix to store the number of times each choice was made
-results <- matrix(0, nrow = n_replicates, ncol = length(choices), dimnames = list(NULL, choices))
+results <- matrix(0, nrow = replicateplates, ncol = length(diets), dimnames = list(NULL, choices))
 
 # Loop over each replicate
 for (i in 1:n_replicates) {
   # Generate a set of random choices based on the probabilities
-  choices_made <- sample(choices, size = n_flies, replace = TRUE, prob = probs)
+  choices_made <- sample(diets, size = numberflies, replace = TRUE, prob = meansofdiets)
   
   # Count the number of times each choice was made
-  for (j in 1:length(choices)) {
-    results[i, j] <- sum(choices_made == choices[j])
+  for (j in 1:length(diets)) {
+    results[i, j] <- sum(choices_made == diets[j])
   }
 }
 

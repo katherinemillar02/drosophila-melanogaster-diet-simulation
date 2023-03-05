@@ -31,7 +31,7 @@ print(sample)
 set.seed(123)
 
 # Define sample size and diets
-n <- 5
+n <- 10
 diets <- c("8:1", "2:1", "1:2", "1:8", "nodiet")
 
 # Randomly assign individuals to diets
@@ -41,23 +41,27 @@ assign <- sample(diets, size = n, replace = TRUE)
 preference <- numeric(n)
 for (i in 1:n) {
   if (assign[i] == "8:1") {
-    preference[i] <- rnorm(1, mean = 2.74, sd = 1.69)
+    preference[i] <- rnorm(n = 10, mean = 2.74, sd = 1.69)
   } else if (assign[i] == "2:1") {
-    preference[i] <- rnorm(1, mean = 1.73, sd = 1.26)
+    preference[i] <- rnorm(n = 10, mean = 1.73, sd = 1.26)
   } else if (assign[i] == "1:2") {
-    preference[i] <- rnorm(1, mean = 0.98, sd = 1.05)
+    preference[i] <- rnorm(n = 10, mean = 0.98, sd = 1.05)
   } else if (assign[i] == "1:8") {
-    preference[i] <- rnorm(1, mean = 1.36, sd = 1.27)
+    preference[i] <- rnorm(n = 10, mean = 1.36, sd = 1.27)
   } else if (assign[i] == "nodiet") {
-    preference[i] <- rnorm(1, mean = 3.19, sd = 10.088)
+    preference[i] <- rnorm(n = 10, mean = 3.19, sd = 10.088)
   }
-  }
+}
+
+# [i] is used to index or subset a vector or a list. It selects the element at position i in the vector or lis
 
 
 # Print the results
-results <- data.frame(diet = assign, preference = preference)
-print(results)
+diet_simulation <- data.frame(diet = assign, preference = preference)
 
+diet_simulation
+
+#set.seed means numbers are the same each time 
 
 
 # Set seed for reproducibility
@@ -143,4 +147,33 @@ diet_counts <- table(preferred_diet)
 # Print the diet counts
 print(diet_counts)
 
+
+#-----------------------------------------
+
+
+# Define the parameters of the simulation
+choices <- c("8:1", "2:1", "1:2", "1:8")
+probs <- c(2.74, 1.73, 0.98, 1.36)/12
+n_replicates <- 10
+n_flies <- 10
+
+# Create an empty matrix to store the number of times each choice was made
+results <- matrix(0, nrow = n_replicates, ncol = length(choices), dimnames = list(NULL, choices))
+
+# Loop over each replicate
+for (i in 1:n_replicates) {
+  # Generate a set of random choices based on the probabilities
+  choices_made <- sample(choices, size = n_flies, replace = TRUE, prob = probs)
+  
+  # Count the number of times each choice was made
+  for (j in 1:length(choices)) {
+    results[i, j] <- sum(choices_made == choices[j])
+  }
+}
+
+# Calculate the proportion of times each choice was made
+prop_choices <- colMeans(results)
+
+# Print the estimated preference for each choice
+print(prop_choices)
 

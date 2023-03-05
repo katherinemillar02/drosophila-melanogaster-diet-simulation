@@ -152,8 +152,8 @@ print(diet_counts)
 
 
 # Define the parameters of the simulation
-diets <- c("8:1", "2:1", "1:2", "1:8")
-meansofdiets <- c(2.74, 1.73, 0.98, 1.36)
+diets <- c("8:1", "2:1", "1:2", "1:8", "0:0")
+meansofdiets <- c(2.74, 1.73, 0.98, 1.36, 3.19)
 replicateplates <- 10
 
 numberflies <- 10
@@ -178,3 +178,56 @@ prop_choices <- colMeans(results)
 # Print the estimated preference for each choice
 print(prop_choices)
 
+prop_choices
+
+
+
+
+
+
+
+
+
+
+
+#  simulation which includes no diet option 
+# Define the diets and their probabilities
+diets <- c("8:1", "2:1", "1:8", "1:2", "nodiet")
+probs <- c(2.74, 1.73, 1.36, 0.98, 3.19)
+
+# Define the number of replicates and flies per replicate
+n_replicates <- 10
+n_flies <- 10
+
+# Initialize an empty matrix to store the results
+results <- matrix(0, nrow = n_replicates, ncol = length(diets), dimnames = list(NULL, diets))
+
+# Loop over each replicate
+for (i in 1:n_replicates) {
+  
+  # Generate a set of random choices for each fly based on the probabilities
+  choices <- sample(diets, size = n_flies, replace = TRUE, prob = probs)
+  
+  # Count the number of flies on each diet patch and store the results
+  for (j in 1:length(diets)) {
+    results[i, j] <- sum(choices == diets[j])
+  }
+}
+
+# Calculate the mean number of flies on each diet patch across all replicates
+mean_results <- colMeans(results)
+
+# Identify the preferred diet
+preferred_diet <- diets[which.max(mean_results)]
+
+# Print the results
+cat("Mean number of flies on each diet patch:", mean_results, "\n")
+cat("Preferred diet:", preferred_diet, "\n")
+
+mean_results
+
+preferred_diet
+
+
+
+preferred_diet

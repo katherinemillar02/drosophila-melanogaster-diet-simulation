@@ -8,8 +8,8 @@ A simulation for a preferred diet over a choice of four varying protein: carbohy
 
 This simulation gives results for
 
-## - Mated female diet preference
-## - Virgin female diet preference 
+#### Mated female diet preference
+#### Virgin female diet preference 
 
 Over a choice of diets: 
 

@@ -36,6 +36,7 @@ mean_dietpreference <- colMeans(dietpreference)
 # Identify the preferred diet
 preferred_diet <- diets[which.max(mean_dietpreference)]
 
+
 # Print the results
 cat("Mean number of flies on each diet patch:", mean_dietpreference, "\n")
 cat("Preferred diet:", preferred_diet, "\n")

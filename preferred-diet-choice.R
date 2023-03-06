@@ -40,6 +40,11 @@ preferred_diet <- diets[which.max(mean_dietpreference)]
 cat("Mean number of flies on each diet patch:", mean_dietpreference, "\n")
 cat("Preferred diet:", preferred_diet, "\n")
 
+#  cat converts its arguments to character strings, concatenates them, separating
+#  them by the given sep= string, and then prints them
+
 mean_dietpreference
+
+
 
 

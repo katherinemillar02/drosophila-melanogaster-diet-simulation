@@ -12,44 +12,42 @@
 diets <- c("8:1", "2:1", "1:8", "1:2", "nodiet")
 
 # The mean average of each of the diets from a previous experiment 
-
 meanpreference <- c(2.74, 1.73, 1.36, 0.98, 3.19)
 
-# the amount of replicate feeding assays 
-replicates <- 100
+# the amount of replicate feeding assays? or the amount of times to run the simulation
+replicates <- 10
 
 # the number of flies in each feeding assay 
 flies <- 10
 
-# putting the data into columns 
+# putting the data into a 'matrix' with amount of times to repeat, diet names to include 
 dietpreference <- matrix(0, nrow = replicates, ncol = length(diets), dimnames = list(NULL, diets))
 
 # Loop over each replicate
-for (i in 100:100) {
+for (i in 1:replicates) {
   
-  # Generate a set of random choices for each fly based on the probabilities
+# the simulation including diet names, overall amount of flies with the known mean preferences of a fly on each patch
   choices <- sample(diets, size = flies, replace = TRUE, prob = meanpreference)
-  
-  # Count the number of flies on each diet patch and store the results
   for (j in 1:length(diets)) {
     dietpreference[i, j] <- sum(choices == diets[j])
   }
 }
 
-# Calculate the mean number of flies on each diet patch across all replicates
+# using the matrix to find the the mean diet preference of the replicates (10 or 100) using colMeans
 mean_dietpreference <- colMeans(dietpreference)
 
-# Identify the preferred diet
+# a simulation which gives the name of the preferred diet for a simulation 
 preferred_diet <- diets[which.max(mean_dietpreference)]
 
 
-# Print the results
+# using cat function to print the simulation results 
 cat("Mean number of flies on each diet patch:", mean_dietpreference, "\n")
 cat("Preferred diet:", preferred_diet, "\n")
 
 #  cat converts its arguments to character strings, concatenates them, separating
 #  them by the given sep= string, and then prints them
 
+# simulation for a mean diet preference of each diet 
 mean_dietpreference
 
 #-------------- Virgin females ------------

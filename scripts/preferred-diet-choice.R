@@ -97,7 +97,7 @@ cat("Preferred diet:", preferred_dietv, "\n")
 
 cat("Preferred diet:", preferred_diet, "\n")
 mean_dietpreference
-cat("Preferred diet:", preferred_dietv, "\n")
+cat("Preferred diet virgin:", preferred_dietv, "\n")
 
 mean_dietpreferencev
 

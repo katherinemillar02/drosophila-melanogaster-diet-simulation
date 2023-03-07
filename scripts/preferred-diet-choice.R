@@ -101,4 +101,13 @@ cat("Preferred diet virgin:", preferred_dietv, "\n")
 
 mean_dietpreferencev
 
+sample(preferred_dietv, 100, replace = TRUE)
+
+sample(preferred_dietv, 100, replace = TRUE)
+
+replicate(100, mean_dietpreferencev)
+
+replicate(100, preferred_dietv)
+
+# issue is replicating the same code 
 

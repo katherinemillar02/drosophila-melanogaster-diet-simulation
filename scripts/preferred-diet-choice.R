@@ -50,6 +50,11 @@ cat("Preferred diet:", preferred_diet, "\n")
 # simulation for a mean diet preference of each diet 
 mean_dietpreference
 
+#  trying to repeat simulation 100 times 
+results <- replicate(1000, choices())
+
+prop.results <- prop.table(table(results))
+
 #-------------- Virgin females ------------
 
 # Reading the different diets in 

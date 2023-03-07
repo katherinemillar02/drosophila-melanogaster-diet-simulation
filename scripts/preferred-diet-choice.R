@@ -16,7 +16,7 @@ diets <- c("8:1", "2:1", "1:8", "1:2", "nodiet")
 meanpreference <- c(2.74, 1.73, 1.36, 0.98, 3.19)
 
 # the amount of replicate feeding assays 
-replicates <- 10
+replicates <- 100
 
 # the number of flies in each feeding assay 
 flies <- 10
@@ -25,7 +25,7 @@ flies <- 10
 dietpreference <- matrix(0, nrow = replicates, ncol = length(diets), dimnames = list(NULL, diets))
 
 # Loop over each replicate
-for (i in 1:replicates) {
+for (i in 100:100) {
   
   # Generate a set of random choices for each fly based on the probabilities
   choices <- sample(diets, size = flies, replace = TRUE, prob = meanpreference)

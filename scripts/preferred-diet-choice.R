@@ -5,7 +5,7 @@
 
 
 
-#-------------- Mated females ---------
+#-------------- Mated females ---------------
 
 
 # Reading the different diets in 

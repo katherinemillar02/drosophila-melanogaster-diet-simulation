@@ -1,4 +1,14 @@
 
+#------- OLD SCRIPT DO NOT USE 
+
+
+
+
+
+
+
+
+
 #  starting with basics 
 # generating random numbers from 10 flie s
 

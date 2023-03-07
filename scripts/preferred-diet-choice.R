@@ -54,7 +54,10 @@ proportionresults <- replicate(1000, choices)
 # diet prportion 
 prop.results <- prop.table(table(proportionresults))
 
+preferred_diet
+mean_dietpreference
 prop.results
+
 
 #-------------- Virgin females ------------
 

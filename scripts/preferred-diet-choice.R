@@ -19,8 +19,11 @@ replicates <- 10
 # the number of flies in each feeding assay 
 flies <- 10
 
+# matrix = creates a matrix from the given set of values.
 # putting the data into a 'matrix' with amount of times to repeat, diet names to include 
 dietpreference <- matrix(0, nrow = replicates, ncol = length(diets), dimnames = list(NULL, diets))
+
+# think can make it loop x amount of times here 
 
 
 # Loop over each replicate

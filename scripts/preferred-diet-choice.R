@@ -23,13 +23,13 @@ diets <- c("8:1", "2:1", "1:8", "1:2", "nodiet")
 meanpreference <- c(2.74, 1.73, 1.36, 0.98, 3.19)
 
 # the amount of replicate feeding assays? or the amount of times to run the simulation?? 
-replicates <- 100
+replicates <- 10
 # the number of flies in each feeding assay 
 flies <- 10
 
 # matrix = creates a matrix from the given set of values.
 # putting the data into a 'matrix' with amount of times to repeat, diet names to include 
-dietpreference <- matrix(0, nrow = replicates, ncol = length(diets), dimnames = list(NULL, diets))
+dietpreference <- function(x)  matrix(0, nrow = replicates, ncol = length(diets), dimnames = list(NULL, diets))
 
 # think can make it loop x amount of times here 
 
@@ -37,7 +37,7 @@ dietpreference <- matrix(0, nrow = replicates, ncol = length(diets), dimnames = 
 # Loop over each replicate
 
  for (i in 1:replicates) {choices <- sample(diets, size = flies, replace = TRUE, prob = meanpreference)
-  for (j in 0:length(diets)) {
+  for (j in 1:length(diets)) {
     dietpreference[i, j] <- sum(choices == diets[j])}}
  
 
@@ -45,10 +45,10 @@ dietpreference <- matrix(0, nrow = replicates, ncol = length(diets), dimnames = 
 # the simulation including diet names, overall amount of flies with the known mean preferences of a fly on each patch
 
 # using the matrix to find the the mean diet preference of the replicates (10 or 100) using colMeans
-mean_dietpreference <- colMeans(dietpreference)
+mean_dietpreference <- function(x) colMeans(dietpreference)
 
 # a simulation which gives the name of the preferred diet for a simulation 
-preferred_diet <- diets[which.max(mean_dietpreference)]
+preferred_diet <- function(x) diets[which.max(mean_dietpreference)]
 
 
 # using cat function to print the simulation results 
@@ -71,6 +71,11 @@ preferred_diet
 mean_dietpreference
 prop.results
 
+library(purrr)
+rerun(10, mean_dietpreference(10))
+
+library(purrr)
+map(seq_len(10), mean_dietpreference(1))
 
 
 #-------------- Virgin females ------------

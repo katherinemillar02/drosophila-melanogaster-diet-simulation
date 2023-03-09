@@ -1,3 +1,5 @@
+library(foreach)
+
 # --- Preferred dietary choice 
 
 #  A simulation which includes 4 protein: carbohydrate diets and a no diet option 

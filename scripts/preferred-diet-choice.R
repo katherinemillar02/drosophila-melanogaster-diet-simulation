@@ -7,6 +7,12 @@
 
 #-------------- Mated females ---------------
 
+x <- runif(100)
+
+set.seed(Sys.time())
+
+x <- runif(100)
+
 
 # Reading the different diets in 
 diets <- c("8:1", "2:1", "1:8", "1:2", "nodiet")
@@ -15,7 +21,7 @@ diets <- c("8:1", "2:1", "1:8", "1:2", "nodiet")
 meanpreference <- c(2.74, 1.73, 1.36, 0.98, 3.19)
 
 # the amount of replicate feeding assays? or the amount of times to run the simulation?? 
-replicates <- 10
+replicates <- 100
 # the number of flies in each feeding assay 
 flies <- 10
 
@@ -31,6 +37,8 @@ dietpreference <- matrix(0, nrow = replicates, ncol = length(diets), dimnames = 
  for (i in 1:replicates) {choices <- sample(diets, size = flies, replace = TRUE, prob = meanpreference)
   for (j in 0:length(diets)) {
     dietpreference[i, j] <- sum(choices == diets[j])}}
+ 
+
 
 # the simulation including diet names, overall amount of flies with the known mean preferences of a fly on each patch
 
@@ -52,7 +60,7 @@ cat("Preferred diet:", preferred_diet, "\n")
 mean_dietpreference
 #------ proportion results for one fly? 
 #  trying to repeat simulation 100 times 
-proportionresults <- replicate(1000, choices)
+proportionresults <- replicate(1, choices)
 
 # diet prportion 
 prop.results <- prop.table(table(proportionresults))
@@ -60,6 +68,7 @@ prop.results <- prop.table(table(proportionresults))
 preferred_diet
 mean_dietpreference
 prop.results
+
 
 
 #-------------- Virgin females ------------
@@ -104,6 +113,7 @@ cat("Preferred diet virgin:", preferred_dietv, "\n")
 mean_dietpreferencev
 
 sample(preferred_dietv, 100, replace = TRUE)
+
 
 sample(preferred_dietv, 100, replace = TRUE)
 

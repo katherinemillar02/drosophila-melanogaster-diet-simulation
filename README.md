@@ -18,17 +18,18 @@ __8:1, 2:1, 1:2, 1:8 and the choice of no diet (around the edge of an assay plat
 This repository contains code which will give the mean average of a choice of 10 flies, across 10 replicates as well as what is the preferred diet choice. 
 This also contains code which will give a proportional value of the diet in which flies will go to when given the choice. 
 
-<img src='images/meandietpreferencecode.png' align="left" height="100" />
-<img src='images/propresults.png' align="left" height="100" 
+<img src='images/meandietpreferencecode.png' align="left" height="100" /> 
+<img src='images/propresults.png' align="left" height="100">
 
 
 
+---------------------------------------- 
+__*Drosophila* Diet Preference Shiny Simulation__ 
 
-#### *Drosophila* Diet Preference Shiny Simulation__ 
+
+<img src='images/flyprefercnesim.png' align="left" height="400">
+
 
 Also contains an __R Shiny__ simulation in which you can select the amount of flies and amount of replicate diet assay plates and will give you the amount of flies on each diet depending. 
-
-<img src='images/flyprefercnesim.png' align="left" height="400" />
-
 
 

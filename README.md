@@ -19,8 +19,7 @@ This repository contains code which will give the mean average of a choice of 10
 This also contains code which will give a proportional value of the diet in which flies will go to when given the choice. 
 
 <img src='images/meandietpreferencecode.png' align="left" height="100" />
-<img src='images/propresults.png' align="left" height="100" / > 
-
+<img src='images/propresults.png' align="left" height="100" 
 
 
 

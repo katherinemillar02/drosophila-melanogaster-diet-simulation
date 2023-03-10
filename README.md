@@ -21,9 +21,8 @@ This also contains code which will give a proportional value of the diet in whic
 <img src='images/meandietpreferencecode.png' align="left" height="100" /> 
 <img src='images/propresults.png' align="left" height="100">
 
+---------------------------------------------------------------------------------------------------- 
 
-
----------------------------------------- 
 __*Drosophila* Diet Preference Shiny Simulation__ 
 
 

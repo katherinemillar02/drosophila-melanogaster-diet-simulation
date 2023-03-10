@@ -22,11 +22,14 @@ This also contains code which will give a proportional value of the diet in whic
 <img src='images/propresults.png' align="left" height="100" />
 
 
+
+
+
 __*Drosophila* Diet Preference Shiny Simulation__ 
 
 Also contains an R Shiny simulation in which you can select the amount of flies and amount of replicate diet assay plates and will give you the amount of flies on each diet depending. 
 
-<img src='images/meandietpreferencecode.png' align="left" height="200" />
+<img src='images/flyprefercnesim.png' align="left" height="200" />
 
 
 

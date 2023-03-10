@@ -1,4 +1,4 @@
-library(foreach)
+
 
 # --- Preferred dietary choice 
 
@@ -29,7 +29,7 @@ flies <- 10
 
 # matrix = creates a matrix from the given set of values.
 # putting the data into a 'matrix' with amount of times to repeat, diet names to include 
-dietpreference <- function(x)  matrix(0, nrow = replicates, ncol = length(diets), dimnames = list(NULL, diets))
+dietpreference <-  matrix(0, nrow = replicates, ncol = length(diets), dimnames = list(NULL, diets))
 
 # think can make it loop x amount of times here 
 
@@ -45,10 +45,10 @@ dietpreference <- function(x)  matrix(0, nrow = replicates, ncol = length(diets)
 # the simulation including diet names, overall amount of flies with the known mean preferences of a fly on each patch
 
 # using the matrix to find the the mean diet preference of the replicates (10 or 100) using colMeans
-mean_dietpreference <- function(x) colMeans(dietpreference)
+mean_dietpreference <-  colMeans(dietpreference)
 
 # a simulation which gives the name of the preferred diet for a simulation 
-preferred_diet <- function(x) diets[which.max(mean_dietpreference)]
+preferred_diet <-  diets[which.max(mean_dietpreference)]
 
 
 # using cat function to print the simulation results 
@@ -67,8 +67,14 @@ proportionresults <- replicate(1, choices)
 # diet prportion 
 prop.results <- prop.table(table(proportionresults))
 
-preferred_diet
 mean_dietpreference
+mean_dietpreference
+mean_dietpreference
+mean_dietpreference
+
+
+preferred_diet
+
 prop.results
 
 library(purrr)

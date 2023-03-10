@@ -7,8 +7,9 @@
 #    http://shiny.rstudio.com/
 #
 
+library(tidyverse)
 library(shiny)
-
+library(RColorBrewer)
 # Define UI for application that draws a histogram
 ui <- fluidPage(
 
@@ -60,7 +61,8 @@ library(rsconnect)
 
 # Define UI for simulation
 ui <- fluidPage(
-  titlePanel("Fly Feeding Simulation"),
+  tags$img(src="images/hex-drosophiladiet.png"),
+  titlePanel("Mated Female Drosophila Diet Preference Simulation"),
   sidebarLayout(
     sidebarPanel(
       numericInput("flies", "Number of flies:", 10, min = 1, max = 100),
@@ -89,10 +91,11 @@ server <- function(input, output) {
   }
   
   # Generate plot of feeding choices
+  
   output$simPlot <- renderPlot({
     mean_avg <- c(2.74, 1.73, 0.98, 1.36, 3.19) # Enter mean average values for diets here
     choices <- simulate_feeding(input$flies, input$replicates, mean_avg)
-    barplot(table(choices), col = rainbow(length(diets)))
+    barplot(table(choices), col = "rainbow" (length(diets)))
     legend("topright", legend = diets, fill = rainbow(length(diets)))
   })
   

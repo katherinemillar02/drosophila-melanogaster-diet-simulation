@@ -18,7 +18,7 @@ __8:1, 2:1, 1:2, 1:8 and the choice of no diet (around the edge of an assay plat
 This repository contains code which will give the mean average of a choice of 10 flies, across 10 replicates as well as what is the preferred diet choice. 
 This also contains code which will give a proportional value of the diet in which flies will go to when given the choice. 
 
-<img src='images/meandietpreferencecode.png'  height="100" /> 
+<img src='images/meandietpreferencecode.png' align="left" height="100" /> 
 <img src='images/propresults.png' height="100">
 
 

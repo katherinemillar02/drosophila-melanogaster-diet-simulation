@@ -1,3 +1,12 @@
+
+
+
+#---------------------------------
+
+library(shiny)
+library(packrat)
+library(rsconnect)
+
 #
 # This is a Shiny web application. You can run the application by clicking
 # the 'Run App' button above.
@@ -12,38 +21,38 @@ library(shiny)
 library(RColorBrewer)
 # Define UI for application that draws a histogram
 ui <- fluidPage(
-
-    # Application title
-    titlePanel("Old Faithful Geyser Data"),
-
-    # Sidebar with a slider input for number of bins 
-    sidebarLayout(
-        sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
-        ),
-
-        # Show a plot of the generated distribution
-        mainPanel(
-           plotOutput("distPlot")
-        )
+  
+  # Application title
+  titlePanel("Old Faithful Geyser Data"),
+  
+  # Sidebar with a slider input for number of bins 
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("bins",
+                  "Number of bins:",
+                  min = 1,
+                  max = 50,
+                  value = 30)
+    ),
+    
+    # Show a plot of the generated distribution
+    mainPanel(
+      plotOutput("distPlot")
     )
+  )
 )
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
-
-    output$distPlot <- renderPlot({
-        # generate bins based on input$bins from ui.R
-        x    <- faithful[, 2]
-        bins <- seq(min(x), max(x), length.out = input$bins + 1)
-
-        # draw the histogram with the specified number of bins
-        hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    })
+  
+  output$distPlot <- renderPlot({
+    # generate bins based on input$bins from ui.R
+    x    <- faithful[, 2]
+    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+    
+    # draw the histogram with the specified number of bins
+    hist(x, breaks = bins, col = 'darkgray', border = 'white')
+  })
 }
 
 # Run the application 
@@ -59,7 +68,7 @@ library(shiny)
 library(packrat)
 library(rsconnect)
 
-# Define UI for simulation
+#  UI 
 ui <- fluidPage(
   tags$img(src="images/hex-drosophiladiet.png"),
   titlePanel("Mated Female Drosophila Diet Preference Simulation"),
@@ -74,10 +83,10 @@ ui <- fluidPage(
   )
 )
 
-# Define server for simulation
+#  server 
 server <- function(input, output) {
   
-  # Define function to simulate feeding choices
+  # function
   simulate_feeding <- function(flies, replicates, mean_avg) {
     diets <- c("8:1", "2:1", "1:2", "1:8", "nodiet")
     choices <- matrix(0, nrow = replicates, ncol = flies)
@@ -90,10 +99,10 @@ server <- function(input, output) {
     return(choices)
   }
   
-  # Generate plot of feeding choices
+  # simulation plot 
   
   output$simPlot <- renderPlot({
-    mean_avg <- c(2.74, 1.73, 0.98, 1.36, 3.19) # Enter mean average values for diets here
+    mean_avg <- c(2.74, 1.73, 0.98, 1.36, 3.19) 
     choices <- simulate_feeding(input$flies, input$replicates, mean_avg)
     barplot(table(choices), col = "rainbow" (length(diets)))
     legend("topright", legend = diets, fill = rainbow(length(diets)))
@@ -103,3 +112,4 @@ server <- function(input, output) {
 
 # Run the simulation app
 shinyApp(ui = ui, server = server)
+

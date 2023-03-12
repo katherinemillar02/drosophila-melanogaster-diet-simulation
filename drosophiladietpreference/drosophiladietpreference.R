@@ -77,7 +77,7 @@ ui <- fluidPage(
       numericInput("flies", "Number of flies:", 10, min = 1, max = 100),
       numericInput("replicates", "Number of replicates:", 10, min = 1, max = 10 ),
       radioButtons(inputId = "typeoffly", label = "Type of fly:",
-                   choices = c("Mated", "Virgin")),
+                   choices = c("Mated female", "Virgin female")),
     ),
     mainPanel(
       plotOutput("simPlot")

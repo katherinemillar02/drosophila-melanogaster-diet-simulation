@@ -67,12 +67,9 @@ proportionresults <- replicate(1, choices)
 # diet prportion 
 prop.results <- prop.table(table(proportionresults))
 
-mean_dietpreference
-mean_dietpreference
-mean_dietpreference
-mean_dietpreference
 
 
+mean_dietpreference
 preferred_diet
 
 prop.results

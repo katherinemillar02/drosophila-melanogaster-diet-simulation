@@ -16,7 +16,7 @@ This simulation gives the mean average of how many flies prefer a particular die
 
 Over a choice of diets: 
 
-__8:1, 2:1, 1:2, 1:8 and the choice of no diet (around the assay plate)__
+__8:1, 2:1, 1:2, 1:8__ and the choice of __no diet__ (around the assay plate)
 
 ### Coded simulation giving mean and proportional values
 

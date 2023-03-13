@@ -44,10 +44,10 @@ set.seed(123)
 n <- 10
 diets <- c("8:1", "2:1", "1:2", "1:8", "nodiet")
 
-# Randomly assign individuals to diets
+
 assign <- sample(diets, size = n, replace = TRUE)
 
-# Simulate weight loss for each individual on their assigned diet
+
 preference <- numeric(n)
 for (i in 1:n) {
   if (assign[i] == "8:1") {

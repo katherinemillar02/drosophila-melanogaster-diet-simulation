@@ -35,7 +35,7 @@ This also contains code which will give a proportional value of the diet in whic
 Also contains an __R Shiny__ simulation in which you can select the amount of flies and amount of replicate diet assay plates and will give you the amount of flies on each diet depending. 
 
 
-<img src='images/dietsimulation.png'  width="1300" height="400" >
+<img src='images/drosophilasimulationscreenshot.png' height="400" >
 
 
 

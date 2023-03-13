@@ -112,6 +112,6 @@ server <- function(input, output) {
   
 }
 
-# Run the simulation app
+# simulation app
 shinyApp(ui = ui, server = server)
 
